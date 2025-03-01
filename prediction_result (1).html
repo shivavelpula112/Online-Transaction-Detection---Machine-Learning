@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Prediction Result</title>
+
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            padding: 0;
+        background: linear-gradient(135deg, #3498db, #8e44ad); 
+            color: #fff;
+                display: flex;
+    justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        h1, h2 {
+            text-align: center;
+    padding: 20px;
+            margin-top: 20px;
+            
+            
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            animation: fadeIn 1s ease-out;
+        }
+
+    h1 {
+            color: white;
+            background: linear-gradient(to right, #3398dc, #2980b9);
+        }
+
+        h2 {
+            color: #3498db;
+            background: rgba(255, 255, 255, 0.8); 
+        }
+
+        
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+            to {
+                opacity: 1;
+            }
+        }
+    </style>
+</head>
+<body>
+    <h1>Prediction Result</h1>
+
+    {% if prediction is defined %}
+        {% if prediction == 1 %}
+            <h2>The transaction is predicted as fraud.</h2>
+        {% elif prediction == 0 %}
+            <h2>The transaction is predicted as not fraud.</h2>
+        {% endif %}
+    {% else %}
+        <h2>No prediction available.</h2>
+    {% endif %}
+</body>
+</html>
